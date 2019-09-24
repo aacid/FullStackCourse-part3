@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const app = express();
+
+app.use(express.static("build"));
 app.use(bodyParser.json());
 morgan.token("body", (request, response) => {
     return JSON.stringify(request.body);
